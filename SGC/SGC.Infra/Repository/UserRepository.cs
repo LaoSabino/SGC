@@ -20,29 +20,33 @@ namespace SGC.Infra.Repository
 
         public User Create(User user)
         {
-            _context.Set<User>().Add(user);
+            _context.Users.Add(user);
             _context.SaveChanges();
             return user;
         }
 
         public User Delete(int id)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.Remove(Get(id));
+            _context.SaveChanges();
+            return user;
         }
 
         public IEnumerable<User> Get(Expression<Func<User, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(predicate);
         }
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(x => x.Id == id).FirstOrDefault();
         }
 
         public User Update(User user)
         {
-            throw new NotImplementedException();
+            _context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
+            return user;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SGC.Core;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace SGC.Infra.Map
     {
         public UserMap()
         {
-            HasKey(t => t.Id);
+            Property(x => x.Id)
+               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             //properties             
             Property(t => t.Name).IsRequired().HasMaxLength(100).HasColumnType("varchar");
             Property(t => t.Email).HasMaxLength(100).HasColumnType("varchar");

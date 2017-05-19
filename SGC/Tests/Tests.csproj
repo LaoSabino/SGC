@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -52,6 +55,24 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SGC.Core\SGC.Core.csproj">
+      <Project>{a9895ac0-3ff1-4c43-be98-87f245c42d47}</Project>
+      <Name>SGC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGC.DI\SGC.DI.csproj">
+      <Project>{efe4dfbf-8a5e-4766-ad5e-bfc10ec19bd2}</Project>
+      <Name>SGC.DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGC.Infra\SGC.Infra.csproj">
+      <Project>{e157cbff-42dd-4517-b9d4-f06a6b0b75f8}</Project>
+      <Name>SGC.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGC.Service\SGC.Service.csproj">
+      <Project>{757d4369-5890-47a4-9740-b6de8d388c80}</Project>
+      <Name>SGC.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

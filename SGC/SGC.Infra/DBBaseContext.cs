@@ -13,18 +13,20 @@ namespace SGC.Infra
     {
         public DbSet<User> Users { get; set; }
 
-        public DBBaseContext() : base("conexsgc") { }
+        public DBBaseContext() : base("conexsgc")
+        {
+
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
+
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
-            base.OnModelCreating(modelBuilder);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
+
     }
 }
 
